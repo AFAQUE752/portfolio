@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Afaque Ashraf | Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e94560;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #e94560;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0;
+            text-align: center;
+            background: rgba(15, 15, 35, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #e94560, #f38ba8, #a6e3a1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #f38ba8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #a6e3a1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #f38ba8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(233, 69, 96, 0.5)); }
+            to { filter: drop-shadow(0 0 40px rgba(233, 69, 96, 0.8)); }
+        }
+
+        /* Enhanced Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            padding: 2rem 0;
+            text-align: center;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        nav.minimized {
+            padding: 0.8rem 0;
+            background: rgba(15, 15, 35, 0.98);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e94560;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        nav.minimized a {
+            padding: 0.8rem 1.8rem;
+            font-size: 0.9rem;
+            min-width: 100px;
+            margin: 0 0.8rem;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            border: 2px solid #e94560;
+            background: rgba(233, 69, 96, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.3);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: 2px solid #e94560;
+            color: #e94560;
+            padding: 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-toggle:hover {
+            background: rgba(233, 69, 96, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 800;
+            position: relative;
+            color: #f38ba8;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #e94560, #a6e3a1);
+            border-radius: 2px;
+        }
+
+        /* About section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .profile-card {
+            background: rgba(15, 15, 35, 0.8);
+            border: 2px solid rgba(233, 69, 96, 0.3);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e94560, #f38ba8, #a6e3a1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .profile-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(233, 69, 96, 0.2);
+            border-color: #e94560;
+        }
+
+        .profile-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #a6e3a1;
+            background: rgba(166, 227, 161, 0.15);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .philosophy-item {
+            padding: 2rem;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #a6e3a1;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-item:hover {
+            transform: translateX(10px);
+            background: rgba(233, 69, 96, 0.15);
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(15, 15, 35, 0.8);
+            border: 2px solid rgba(233, 69, 96, 0.3);
+            padding: 3rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(166, 227, 161, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .skill-category:hover::before {
+            left: 100%;
+        }
+
+        .skill-category:hover {
+            transform: scale(1.02);
+            border-color: #a6e3a1;
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.2);
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #f38ba8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .skill-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #a6e3a1;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            padding-left: 3rem;
+            color: #a6e3a1;
+        }
+
+        .skill-list li:hover::before {
+            color: #e94560;
+            transform: scale(1.2);
+        }
+
+        /* Projects section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(15, 15, 35, 0.8);
+            border: 2px solid rgba(233, 69, 96, 0.3);
+            padding: 3rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 139, 168, 0.1), transparent);
+            transition: right 0.6s ease;
+        }
+
+        .project-card:hover::after {
+            right: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #f38ba8;
+            box-shadow: 0 25px 50px rgba(233, 69, 96, 0.25);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #a6e3a1;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .project-desc {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            font-size: 1rem;
+            color: #f38ba8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Experience section */
+        .experience-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #e94560, #f38ba8, #a6e3a1);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-left: 5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(15, 15, 35, 0.8);
+            border-radius: 15px;
+            border: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2rem;
+            width: 1rem;
+            height: 1rem;
+            background: #a6e3a1;
+            border-radius: 50%;
+            border: 3px solid #0f0f23;
+        }
+
+        .timeline-date {
+            color: #f38ba8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            color: #a6e3a1;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* Contact section */
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            padding: 1.5rem 3rem;
+            border: 2px solid rgba(233, 69, 96, 0.3);
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: #e94560;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(45deg, #e94560, #f38ba8);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+
+        .contact-item:hover::before {
+            width: 100%;
+        }
+
+        .contact-item:hover {
+            color: #0f0f23;
+            border-color: #f38ba8;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        /* Terminal effect */
+        .terminal-text {
+            font-family: 'Fira Code', monospace;
+            background: #000;
+            border: 2px solid #a6e3a1;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .terminal-text::before {
+            content: '❯ ';
+            color: #a6e3a1;
+            font-weight: bold;
+        }
+
+        .cursor {
+            display: inline-block;
+            background: #a6e3a1;
+            width: 2px;
+            height: 1.2em;
+            animation: blink 1s infinite;
+            margin-left: 3px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.95);
+            border-top: 1px solid rgba(233, 69, 96, 0.3);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #f38ba8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: #a6e3a1;
+            transform: translateY(-2px);
+        }
+
+        .footer-text {
+            color: #e94560;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Enhanced Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Header Mobile */
+            header {
+                padding: 2rem 0;
+            }
+
+            .logo {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+
+            .tagline {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .stat-item {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            /* Mobile Navigation */
+            .mobile-nav-toggle {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+            }
+
+            nav {
+                position: relative;
+                padding: 1rem 0;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 35, 0.98);
+                padding: 2rem 0;
+                border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0;
+                padding: 1rem 2rem;
+                min-width: auto;
+                width: 100%;
+                border-radius: 0;
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+
+            nav.minimized {
+                padding: 0.8rem 0;
+            }
+
+            /* Sections Mobile */
+            section {
+                padding: 3rem 0;
+                min-height: auto;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                letter-spacing: 2px;
+            }
+
+            /* About Mobile */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .profile-card {
+                padding: 2rem;
+            }
+
+            .profile-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .philosophy-item {
+                padding: 1.5rem;
+            }
+
+            /* Skills Mobile */
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .skill-category {
+                padding: 2rem;
+            }
+
+            .skill-title {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .skill-list li {
+                font-size: 1rem;
+                padding: 0.8rem 0;
+            }
+
+            /* Projects Mobile */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .project-card {
+                padding: 2rem;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-desc {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            /* Experience Mobile */
+            .timeline-line {
+                left: 1rem;
+            }
+
+            .timeline-item {
+                margin-left: 3rem;
+                padding: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -2.5rem;
+                width: 0.8rem;
+                height: 0.8rem;
+            }
+
+            .timeline-title {
+                font-size: 1.2rem;
+            }
+
+            /* Contact Mobile */
+            .contact-intro {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .contact-item {
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Terminal Mobile */
+            .terminal-text {
+                font-size: 0.9rem;
+                padding: 1rem;
+                margin: 1.5rem 0;
+                word-break: break-word;
+            }
+
+            /* Footer Mobile */
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra Small Mobile (320px and below) */
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .profile-card,
+            .skill-category,
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">Md Afaque Ashraf</div>
+            <div class="tagline">Experience Designer • Code Craftsman • Detail Obsessed</div>
+            <div class="hero-stats">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Attention to Detail</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <div class="container">
+            <button class="mobile-nav-toggle" id="mobile-toggle">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content">
+                <div class="profile-card slide-in-left">
+                    <div class="terminal-text">
+                        console.log("I don't just write code — I design experiences")<span class="cursor"></span>
+                    </div>
+                    <p class="profile-text">
+                        Hey, I'm <span class="highlight">Md Afaque Ashraf</span> — someone who thrives where <span class="highlight">detail, structure, and creativity</span> collide. From clean UI components to deeply customized JSON configs, I care about how things feel, look, and behave.
+                    </p>
+                    <p class="profile-text">
+                        I'm especially picky about formatting — I'll align emojis just right, use small caps fonts for aesthetic consistency, and make sure there's no extra spacing unless it adds meaning. <span class="highlight">If I'm sending something out, I've already edited it in my head ten times.</span>
+                    </p>
+                </div>
+                <div class="profile-card slide-in-right">
+                    <h3 style="margin-bottom: 1.5rem; color: #a6e3a1; font-size: 1.4rem;">🧠 How I Think</h3>
+                    <p class="profile-text">
+                        <span class="highlight">Minimalism with intent.</span> I like things compact — sometimes as short as 300 characters — but I still want them to hit. I'm precise. I'll request lowercase small caps with no space between an emoji and label.
+                    </p>
+                    <p class="profile-text">
+                        I talk casually, because that's how I think — but don't confuse casual with careless. <span class="highlight">I know what I want, and I know how to get it.</span>
+                    </p>
+                    <div class="terminal-text">
+                        location: "India" | platform: "Windows 10" | browser: "Chrome"<span class="cursor"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-item fade-in">
+                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">⚡ Fast & Efficient</h4>
+                    <p>I move fast and expect responses that keep up. No time for fluff — if I'm asking something, I've already thought it through.</p>
+                </div>
+                <div class="philosophy-item fade-in">
+                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">🎯 Precision First</h4>
+                    <p>Every pixel, every character, every spacing decision matters. I'll customize roles, logs, UI layouts — whatever it takes to keep the vibe consistent.</p>
+                </div>
+                <div class="philosophy-item fade-in">
+                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">🔧 Tool Agnostic</h4>
+                    <p>From Arduino IDE to VS Code, from Discord bots to embedded systems — I adapt to whatever tool gets the job done cleanly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3 class="skill-title">💻 Core Languages</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & Advanced CSS3</li>
+                        <li>C++ (Embedded/Arduino)</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>JSON Configuration & APIs</li>
+                        <li>Markdown & Documentation</li>
+                        <li>SQL & Database Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3 class="skill-title">🔧 Hardware & Embedded</h3>
+                    <ul class="skill-list">
+                        <li>Arduino Development</li>
+                        <li>SH1106 OLED Displays</li>
+                        <li>Adafruit_GFX Library</li>
+                        <li>Microcontroller Logic</li>
+                        <li>Pixel-Perfect Rendering</li>
+                        <li>Sensor Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3 class="skill-title">🎨 Design & Development</h3>
+                    <ul class="skill-list">
+                        <li>VS Code & Extensions</li>
+                        <li>Arduino IDE</li>
+                        <li>Discord Server Architecture</li>
+                        <li>Code Obfuscation Techniques</li>
+                        <li>Brand Identity Design</li>
+                        <li>Responsive Web Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3 class="skill-title">⚡ Unique Specialties</h3>
+                    <ul class="skill-list">
+                        <li>Emoji-Label Formatting Systems</li>
+                        <li>Small Caps Typography</li>
+                        <li>Atomic Structure Visualizations</li>
+                        <li>Discord Bot Architecture</li>
+                        <li>UI/UX Consistency Frameworks</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <h3 class="project-title">🚗 Apex Automotive</h3>
+                    <p class="project-desc">
+                        Complete automotive web solution with meticulous attention to layout structure, responsive design, and brand consistency. Implemented advanced front-end optimizations and code obfuscation for enhanced security and performance. Focus on user experience with smooth animations and intuitive navigation.
+                    </p>
+                    <p class="project-tech">HTML5 • Advanced CSS3 • JavaScript • Brand Design • Performance Optimization</p>
+                </div>
+                <div class="project-card fade-in">
+                    <h3 class="project-title">⚛️ Atomic Display Engine</h3>
+                    <p class="project-desc">
+                        Sophisticated Arduino-based OLED display system utilizing SH1106 controllers and Adafruit_GFX libraries. Renders complex atomic symbols with precise pixel alignment, mass numbers, electron configurations, and real-time data visualization. Optimized for embedded systems with minimal resource usage.
+                    </p>
+                    <p class="project-tech">C++ • Arduino • SH1106 OLED • Embedded Systems • Data Visualization</p>
+                </div>
+                <div class="project-card fade-in">
+                    <h3 class="project-title">🤖 Discord Ecosystem Architecture</h3>
+                    <p class="project-desc">
+                        Comprehensive Discord server management system with structured channel hierarchies, stylized role management, and consistent emoji-label formatting (🔧staffcommands, 📄logs). Includes automated moderation, custom bot integrations, and seamless user experience design.
+                    </p>
+                    <p class="project-tech">Discord.js • Node.js • Server Management • Bot Development • UI/UX Design</p>
+                </div>
+                <div class="project-card fade-in">
+                    <h3 class="project-title">🎯 Typography & Format Frameworks</h3>
+                    <p class="project-desc">
+                        Custom formatting systems ensuring consistent typography, spacing, and visual hierarchy across all projects. Includes small caps font implementations, emoji alignment protocols, and zero-waste design principles. Scalable design tokens and component libraries.
+                    </p>
+                    <p class="project-tech">CSS • Typography • Design Systems • JSON Schemas • Component Libraries</p>
+                </div>
+                <div class="project-card fade-in">
+                    <h3 class="project-title">🔐 Code Obfuscation Suite</h3>
+                    <p class="project-desc">
+                        Advanced JavaScript and CSS obfuscation tools for enhanced security and cleaner deployment packages. Maintains functionality while reducing code readability and file sizes. Includes automated minification and optimization pipelines.
+                    </p>
+                    <p class="project-tech">JavaScript • Node.js • Webpack • Security • Performance</p>
+                </div>
+                <div class="project-card fade-in">
+                    <h3 class="project-title">📊 Real-time Analytics Dashboard</h3>
+                    <p class="project-desc">
+                        Interactive data visualization platform with real-time metrics, customizable widgets, and responsive design. Features drag-and-drop interface, live data streaming, and export capabilities. Built with performance and user experience as priorities.
+                    </p>
+                    <p class="project-tech">JavaScript • Chart.js • WebSocket • Responsive Design • Data Processing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience Timeline</h2>
+            <div class="experience-timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2024 - Present</div>
+                    <h3 class="timeline-title">Full-Stack Developer & UI/UX Specialist</h3>
+                    <p>Leading end-to-end development projects with focus on pixel-perfect implementations and performance optimization. Specializing in embedded systems integration and modern web technologies. Created custom formatting frameworks and design systems for consistent brand experiences.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <h3 class="timeline-title">Discord Community Architect</h3>
+                    <p>Designed and managed large-scale Discord communities with custom bot development, automated systems, and consistent visual branding. Focused on user experience optimization and community engagement through structured hierarchies and emoji-label formatting systems.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2022 - 2023</div>
+                    <h3 class="timeline-title">Embedded Systems Developer</h3>
+                    <p>Developed Arduino-based display solutions using SH1106 OLED controllers and Adafruit_GFX libraries. Created atomic visualization systems with precise pixel rendering and optimized performance for microcontroller environments. Focus on minimal resource usage and maximum visual impact.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2021 - 2022</div>
+                    <h3 class="timeline-title">Frontend Developer & Brand Designer</h3>
+                    <p>Built responsive web applications with emphasis on clean code architecture and brand consistency. Implemented advanced CSS animations, custom typography systems, and performance optimization techniques. Developed code obfuscation tools for enhanced security.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2020 - 2021</div>
+                    <h3 class="timeline-title">Junior Web Developer</h3>
+                    <p>Started journey in web development focusing on HTML5, CSS3, and JavaScript fundamentals. Built foundational skills in responsive design, cross-browser compatibility, and user interface development. Developed attention to detail and precision-first approach to coding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Let's Build Something</h2>
+            <div class="contact-content">
+                <div class="terminal-text">
+                    if (you.need === "precise_execution" && you.value === "quality") { contact.md_afaque() }<span class="cursor"></span>
+                </div>
+                <p class="contact-intro fade-in">
+                    Looking for someone who doesn't just code, but crafts experiences? Someone who obsesses over the details others miss? 
+                    I'm here to turn your ideas into pixel-perfect reality. <span class="highlight">Let's talk.</span>
+                </p>
+                <div class="contact-methods">
+                    <a href="mailto:menterprises621@gmail.com" class="contact-item fade-in">📧 email</a>
+                    <a href="https://wa.me/917980903434" class="contact-item fade-in">📱 whatsapp</a>
+                    <a href="https://discord.gg/P6943uVDkQ" class="contact-item fade-in">💬 discord</a>
+                </div>
+                <div class="terminal-text" style="margin-top: 3rem;">
+                    > status: available_for_projects<br>
+                    > location: India<br>
+                    > timezone: IST (UTC+5:30)<br>
+                    > response_time: &lt; 24h<span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="terminal-text" style="margin: 0; background: transparent; border: none; padding: 0; font-size: 0.9rem;">
+                    console.log("Thanks for visiting")<span class="cursor"></span>
+                </div>
+            </div>
+            <div class="footer-text">
+                © 2024 Md Afaque Ashraf. Crafted with precision and attention to detail.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle animation
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = window.innerWidth < 768 ? 25 : 50; // Fewer particles on mobile
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
+
+        // Enhanced Navigation Scroll Effect
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateNavbar() {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                navbar.classList.add('minimized');
+            } else {
+                navbar.classList.remove('minimized');
+            }
+            
+            lastScrollY = scrollY;
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick, { passive: true });
+
+        // Smooth scrolling with offset for sticky nav
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const navHeight = navbar.offsetHeight;
+                const targetPosition = target.offsetTop - navHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Enhanced Scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Terminal typing effect - simplified for performance
+        function initializeTerminalEffects() {
+            const terminals = document.querySelectorAll('.terminal-text');
+            
+            terminals.forEach((terminal, index) => {
+                // Add a delay for each terminal
+                setTimeout(() => {
+                    const cursor = terminal.querySelector('.cursor');
+                    if (cursor) {
+                        cursor.style.animation = 'blink 1s infinite';
+                    }
+                }, index * 500);
+            });
+        }
+
+        // Initialize terminal effects when page loads
+        window.addEventListener('load', initializeTerminalEffects);
+
+        // Optimized resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Close mobile menu on resize
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.textContent = '☰';
+                }
+            }, 250);
+        });
+
+        // Performance optimization: Reduce animations on slower devices
+        if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
+            document.documentElement.style.setProperty('--animation-duration', '0.3s');
+        }
+
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'font';
+        preloadLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap';
+        preloadLink.crossOrigin = 'anonymous';
+        document.head.appendChild(preloadLink);
+
+        // Add loading state management
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        if (el.getBoundingClientRect().top < window.innerHeight) {
+                            el.classList.add('visible');
+                        }
+                    }, index * 100);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
