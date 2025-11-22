@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Afaque Ashraf | Developer</title>
+    <title>Md Afaque Ashraf | Learning Developer</title>
     <style>
         * {
             margin: 0;
@@ -25,7 +25,6 @@
             padding: 0 20px;
         }
 
-        /* Animated background particles */
         .particles {
             position: fixed;
             top: 0;
@@ -50,7 +49,6 @@
             50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
         }
 
-        /* Header */
         header {
             padding: 4rem 0;
             text-align: center;
@@ -114,7 +112,6 @@
             to { filter: drop-shadow(0 0 40px rgba(233, 69, 96, 0.8)); }
         }
 
-        /* Enhanced Navigation */
         nav {
             position: sticky;
             top: 0;
@@ -188,7 +185,6 @@
             box-shadow: 0 10px 25px rgba(233, 69, 96, 0.3);
         }
 
-        /* Mobile Navigation */
         .mobile-nav-toggle {
             display: none;
             background: none;
@@ -205,7 +201,6 @@
             background: rgba(233, 69, 96, 0.1);
         }
 
-        /* Sections */
         section {
             padding: 6rem 0;
             min-height: 100vh;
@@ -236,7 +231,6 @@
             border-radius: 2px;
         }
 
-        /* About section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -312,7 +306,6 @@
             background: rgba(233, 69, 96, 0.15);
         }
 
-        /* Skills section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -391,7 +384,6 @@
             transform: scale(1.2);
         }
 
-        /* Projects section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -454,59 +446,6 @@
             font-weight: 600;
         }
 
-        /* Experience section */
-        .experience-timeline {
-            position: relative;
-            margin-top: 3rem;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 2rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #e94560, #f38ba8, #a6e3a1);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-left: 5rem;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: rgba(15, 15, 35, 0.8);
-            border-radius: 15px;
-            border: 2px solid rgba(233, 69, 96, 0.3);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.5rem;
-            top: 2rem;
-            width: 1rem;
-            height: 1rem;
-            background: #a6e3a1;
-            border-radius: 50%;
-            border: 3px solid #0f0f23;
-        }
-
-        .timeline-date {
-            color: #f38ba8;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.4rem;
-            color: #a6e3a1;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        /* Contact section */
         .contact-content {
             text-align: center;
             max-width: 800px;
@@ -565,7 +504,6 @@
             box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
         }
 
-        /* Terminal effect */
         .terminal-text {
             font-family: 'Fira Code', monospace;
             background: #000;
@@ -597,7 +535,6 @@
             51%, 100% { opacity: 0; }
         }
 
-        /* Footer */
         footer {
             background: rgba(15, 15, 35, 0.95);
             border-top: 1px solid rgba(233, 69, 96, 0.3);
@@ -637,47 +574,16 @@
             opacity: 0.8;
         }
 
-        /* Enhanced Mobile Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            /* Header Mobile */
-            header {
-                padding: 2rem 0;
-            }
-
-            .logo {
-                font-size: 2rem;
-                letter-spacing: -1px;
-            }
-
-            .tagline {
-                font-size: 0.9rem;
-                letter-spacing: 1px;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem;
-                margin-top: 1.5rem;
-            }
-
-            .stat-item {
-                padding: 0.8rem 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.8rem;
-            }
-
-            /* Mobile Navigation */
+            .container { padding: 0 15px; }
+            header { padding: 2rem 0; }
+            .logo { font-size: 2rem; letter-spacing: -1px; }
+            .tagline { font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 1.5rem; }
+            .hero-stats { flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+            .stat-item { padding: 0.8rem 1.5rem; }
+            .stat-number { font-size: 1.5rem; }
+            .stat-label { font-size: 0.8rem; }
+            
             .mobile-nav-toggle {
                 display: block;
                 position: absolute;
@@ -686,11 +592,8 @@
                 transform: translateY(-50%);
             }
 
-            nav {
-                position: relative;
-                padding: 1rem 0;
-            }
-
+            nav { position: relative; padding: 1rem 0; }
+            
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -704,10 +607,8 @@
                 gap: 0;
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
+            .nav-links.active { display: flex; }
+            
             nav a {
                 margin: 0;
                 padding: 1rem 2rem;
@@ -718,185 +619,40 @@
                 letter-spacing: 1px;
             }
 
-            nav.minimized {
-                padding: 0.8rem 0;
-            }
-
-            /* Sections Mobile */
-            section {
-                padding: 3rem 0;
-                min-height: auto;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-                letter-spacing: 2px;
-            }
-
-            /* About Mobile */
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-bottom: 2rem;
-            }
-
-            .profile-card {
-                padding: 2rem;
-            }
-
-            .profile-text {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .philosophy-item {
-                padding: 1.5rem;
-            }
-
-            /* Skills Mobile */
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-
-            .skill-category {
-                padding: 2rem;
-            }
-
-            .skill-title {
-                font-size: 1.3rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .skill-list li {
-                font-size: 1rem;
-                padding: 0.8rem 0;
-            }
-
-            /* Projects Mobile */
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-
-            .project-card {
-                padding: 2rem;
-            }
-
-            .project-title {
-                font-size: 1.5rem;
-            }
-
-            .project-desc {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-
-            /* Experience Mobile */
-            .timeline-line {
-                left: 1rem;
-            }
-
-            .timeline-item {
-                margin-left: 3rem;
-                padding: 1.5rem;
-            }
-
-            .timeline-item::before {
-                left: -2.5rem;
-                width: 0.8rem;
-                height: 0.8rem;
-            }
-
-            .timeline-title {
-                font-size: 1.2rem;
-            }
-
-            /* Contact Mobile */
-            .contact-intro {
-                font-size: 1.1rem;
-                margin-bottom: 2rem;
-            }
-
-            .contact-methods {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                margin-top: 2rem;
-            }
-
-            .contact-item {
-                padding: 1.2rem 2.5rem;
-                font-size: 1rem;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            /* Terminal Mobile */
-            .terminal-text {
-                font-size: 0.9rem;
-                padding: 1rem;
-                margin: 1.5rem 0;
-                word-break: break-word;
-            }
-
-            /* Footer Mobile */
-            .footer-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .footer-links a {
-                font-size: 0.9rem;
-            }
+            nav.minimized { padding: 0.8rem 0; }
+            section { padding: 3rem 0; min-height: auto; }
+            .section-title { font-size: 2rem; margin-bottom: 2rem; letter-spacing: 2px; }
+            .about-content { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
+            .profile-card { padding: 2rem; }
+            .profile-text { font-size: 1rem; line-height: 1.6; }
+            .philosophy-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+            .philosophy-item { padding: 1.5rem; }
+            .skills-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+            .skill-category { padding: 2rem; }
+            .skill-title { font-size: 1.3rem; margin-bottom: 1.5rem; }
+            .skill-list li { font-size: 1rem; padding: 0.8rem 0; }
+            .projects-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+            .project-card { padding: 2rem; }
+            .project-title { font-size: 1.5rem; }
+            .project-desc { font-size: 1rem; line-height: 1.6; }
+            .contact-intro { font-size: 1.1rem; margin-bottom: 2rem; }
+            .contact-methods { flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem; }
+            .contact-item { padding: 1.2rem 2.5rem; font-size: 1rem; width: 100%; max-width: 300px; }
+            .terminal-text { font-size: 0.9rem; padding: 1rem; margin: 1.5rem 0; word-break: break-word; }
+            .footer-content { flex-direction: column; gap: 1.5rem; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .footer-links a { font-size: 0.9rem; }
         }
 
-        /* Extra Small Mobile (320px and below) */
         @media (max-width: 320px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            .tagline {
-                font-size: 0.8rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .profile-card,
-            .skill-category,
-            .project-card {
-                padding: 1.5rem;
-            }
-
-            .contact-item {
-                padding: 1rem 2rem;
-                font-size: 0.9rem;
-            }
+            .container { padding: 0 10px; }
+            .logo { font-size: 1.8rem; }
+            .tagline { font-size: 0.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .profile-card, .skill-category, .project-card { padding: 1.5rem; }
+            .contact-item { padding: 1rem 2rem; font-size: 0.9rem; }
         }
 
-        /* Scroll animations */
         .fade-in {
             opacity: 0;
             transform: translateY(50px);
@@ -930,7 +686,6 @@
             transform: translateX(0);
         }
 
-        /* Accessibility improvements */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -946,19 +701,19 @@
     <header>
         <div class="container">
             <div class="logo">Md Afaque Ashraf</div>
-            <div class="tagline">Experience Designer • Code Craftsman • Detail Obsessed</div>
+            <div class="tagline">Code Explorer • Self-Taught • Always Learning</div>
             <div class="hero-stats">
                 <div class="stat-item fade-in">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Learning Mode</div>
                 </div>
                 <div class="stat-item fade-in">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects</div>
+                    <div class="stat-number">F12</div>
+                    <div class="stat-label">Best Friend</div>
                 </div>
                 <div class="stat-item fade-in">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Attention to Detail</div>
+                    <div class="stat-label">Curiosity Driven</div>
                 </div>
             </div>
         </div>
@@ -970,8 +725,7 @@
             <div class="nav-links" id="nav-links">
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
+                <a href="#projects">Experiments</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -979,44 +733,44 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
+            <h2 class="section-title fade-in">Who Am I</h2>
             <div class="about-content">
                 <div class="profile-card slide-in-left">
                     <div class="terminal-text">
-                        console.log("I don't just write code — I design experiences")<span class="cursor"></span>
+                        console.log("I learn by doing, breaking things, and putting them back together")<span class="cursor"></span>
                     </div>
                     <p class="profile-text">
-                        Hey, I'm <span class="highlight">Md Afaque Ashraf</span> — someone who thrives where <span class="highlight">detail, structure, and creativity</span> collide. From clean UI components to deeply customized JSON configs, I care about how things feel, look, and behave.
+                        Real talk: I'm <span class="highlight">not a professional developer</span> — I'm a student of code. Everything I know came from <span class="highlight">hitting F12</span>, exploring other websites, using code templates, and lots of trial and error.
                     </p>
                     <p class="profile-text">
-                        I'm especially picky about formatting — I'll align emojis just right, use small caps fonts for aesthetic consistency, and make sure there's no extra spacing unless it adds meaning. <span class="highlight">If I'm sending something out, I've already edited it in my head ten times.</span>
+                        I build stuff because I'm curious how it works. Sometimes it looks good, sometimes it breaks, but I'm always learning something new. <span class="highlight">That's what matters to me.</span>
                     </p>
                 </div>
                 <div class="profile-card slide-in-right">
-                    <h3 style="margin-bottom: 1.5rem; color: #a6e3a1; font-size: 1.4rem;">🧠 How I Think</h3>
+                    <h3 style="margin-bottom: 1.5rem; color: #a6e3a1; font-size: 1.4rem;">🧠 My Learning Style</h3>
                     <p class="profile-text">
-                        <span class="highlight">Minimalism with intent.</span> I like things compact — sometimes as short as 300 characters — but I still want them to hit. I'm precise. I'll request lowercase small caps with no space between an emoji and label.
+                        I'm obsessed with <span class="highlight">details and formatting</span> — I'll spend hours aligning emojis, choosing the right fonts, and making sure spacing feels right. It's not professional experience, it's just me caring way too much about how things look.
                     </p>
                     <p class="profile-text">
-                        I talk casually, because that's how I think — but don't confuse casual with careless. <span class="highlight">I know what I want, and I know how to get it.</span>
+                        I talk casually because that's who I am. I learn fast, I adapt quickly, and I'm not afraid to admit when <span class="highlight">I don't know something yet.</span>
                     </p>
                     <div class="terminal-text">
-                        location: "India" | platform: "Windows 10" | browser: "Chrome"<span class="cursor"></span>
+                        location: "Kolkata, India" | platform: "Windows 10" | browser: "Chrome"<span class="cursor"></span>
                     </div>
                 </div>
             </div>
             <div class="philosophy-grid">
                 <div class="philosophy-item fade-in">
-                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">⚡ Fast & Efficient</h4>
-                    <p>I move fast and expect responses that keep up. No time for fluff — if I'm asking something, I've already thought it through.</p>
+                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">⚡ Learn By Doing</h4>
+                    <p>No formal training, no bootcamps. Just me, F12, templates, and a whole lot of Google searches. Every project teaches me something new.</p>
                 </div>
                 <div class="philosophy-item fade-in">
-                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">🎯 Precision First</h4>
-                    <p>Every pixel, every character, every spacing decision matters. I'll customize roles, logs, UI layouts — whatever it takes to keep the vibe consistent.</p>
+                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">🎯 Detail Obsessed</h4>
+                    <p>I care about the small things. Emoji spacing, font choices, color schemes — even if no one else notices, I do. It's how I learn attention to detail.</p>
                 </div>
                 <div class="philosophy-item fade-in">
-                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">🔧 Tool Agnostic</h4>
-                    <p>From Arduino IDE to VS Code, from Discord bots to embedded systems — I adapt to whatever tool gets the job done cleanly.</p>
+                    <h4 style="color: #f38ba8; margin-bottom: 1rem; font-size: 1.2rem;">🔧 Experiment First</h4>
+                    <p>I try things, break them, and figure out why. That's my whole process. Reference code from other sites, tweak it, make it mine, learn from it.</p>
                 </div>
             </div>
         </div>
@@ -1024,50 +778,46 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title fade-in">Technical Arsenal</h2>
+            <h2 class="section-title fade-in">What I'm Learning</h2>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">💻 Core Languages</h3>
+                    <h3 class="skill-title">💻 Frontend Basics</h3>
                     <ul class="skill-list">
-                        <li>HTML5 & Advanced CSS3</li>
-                        <li>C++ (Embedded/Arduino)</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>JSON Configuration & APIs</li>
-                        <li>Markdown & Documentation</li>
-                        <li>SQL & Database Design</li>
+                        <li>HTML5 & CSS3 (learned by inspecting sites)</li>
+                        <li>JavaScript fundamentals (still learning)</li>
+                        <li>Responsive design (trial and error)</li>
+                        <li>Using browser DevTools (F12 is my teacher)</li>
+                        <li>Working with templates & examples</li>
                     </ul>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">🔧 Hardware & Embedded</h3>
+                    <h3 class="skill-title">🔧 Tools I Use</h3>
                     <ul class="skill-list">
-                        <li>Arduino Development</li>
-                        <li>SH1106 OLED Displays</li>
-                        <li>Adafruit_GFX Library</li>
-                        <li>Microcontroller Logic</li>
-                        <li>Pixel-Perfect Rendering</li>
-                        <li>Sensor Integration</li>
+                        <li>VS Code (learning extensions)</li>
+                        <li>Chrome DevTools</li>
+                        <li>Git & GitHub (basics)</li>
+                        <li>Code templates & libraries</li>
+                        <li>Online reference sites</li>
                     </ul>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">🎨 Design & Development</h3>
+                    <h3 class="skill-title">🎨 Design Stuff</h3>
                     <ul class="skill-list">
-                        <li>VS Code & Extensions</li>
-                        <li>Arduino IDE</li>
-                        <li>Discord Server Architecture</li>
-                        <li>Code Obfuscation Techniques</li>
-                        <li>Brand Identity Design</li>
-                        <li>Responsive Web Design</li>
+                        <li>Typography (obsessed with fonts)</li>
+                        <li>Color schemes & gradients</li>
+                        <li>Emoji formatting systems</li>
+                        <li>Layout design (copying & improving)</li>
+                        <li>Visual consistency</li>
                     </ul>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">⚡ Unique Specialties</h3>
+                    <h3 class="skill-title">⚡ Currently Learning</h3>
                     <ul class="skill-list">
-                        <li>Emoji-Label Formatting Systems</li>
-                        <li>Small Caps Typography</li>
-                        <li>Atomic Structure Visualizations</li>
-                        <li>Discord Bot Architecture</li>
-                        <li>UI/UX Consistency Frameworks</li>
-                        <li>Performance Optimization</li>
+                        <li>More JavaScript (always more JS)</li>
+                        <li>Better coding practices</li>
+                        <li>How to debug properly</li>
+                        <li>Backend basics (maybe someday)</li>
+                        <li>Making things work smoother</li>
                     </ul>
                 </div>
             </div>
@@ -1076,83 +826,49 @@
 
     <section id="projects">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
+            <h2 class="section-title fade-in">My Experiments</h2>
             <div class="projects-grid">
                 <div class="project-card fade-in">
-                    <h3 class="project-title">🚗 Apex Automotive</h3>
+                    <h3 class="project-title">🌐 This Portfolio Site</h3>
                     <p class="project-desc">
-                        Complete automotive web solution with meticulous attention to layout structure, responsive design, and brand consistency. Implemented advanced front-end optimizations and code obfuscation for enhanced security and performance. Focus on user experience with smooth animations and intuitive navigation.
+                        Built this entire site by learning from other portfolios, tweaking code I found, and making it match my style. Spent way too long on the colors and animations, but that's how I learn. Still not perfect, but it's mine.
                     </p>
-                    <p class="project-tech">HTML5 • Advanced CSS3 • JavaScript • Brand Design • Performance Optimization</p>
+                    <p class="project-tech">HTML5 • CSS3 • JavaScript • Trial & Error</p>
                 </div>
                 <div class="project-card fade-in">
-                    <h3 class="project-title">⚛️ Atomic Display Engine</h3>
+                    <h3 class="project-title">🎨 Discord Server Designs</h3>
                     <p class="project-desc">
-                        Sophisticated Arduino-based OLED display system utilizing SH1106 controllers and Adafruit_GFX libraries. Renders complex atomic symbols with precise pixel alignment, mass numbers, electron configurations, and real-time data visualization. Optimized for embedded systems with minimal resource usage.
+                        Created custom Discord server layouts with organized channels, emoji-label formatting (🔧staffcommands, 📄logs), and consistent visual themes. No coding here, just obsessive attention to detail and making everything look clean.
                     </p>
-                    <p class="project-tech">C++ • Arduino • SH1106 OLED • Embedded Systems • Data Visualization</p>
+                    <p class="project-tech">Discord • Organization • Visual Design</p>
                 </div>
                 <div class="project-card fade-in">
-                    <h3 class="project-title">🤖 Discord Ecosystem Architecture</h3>
+                    <h3 class="project-title">🚗 Automotive Website Project</h3>
                     <p class="project-desc">
-                        Comprehensive Discord server management system with structured channel hierarchies, stylized role management, and consistent emoji-label formatting (🔧staffcommands, 📄logs). Includes automated moderation, custom bot integrations, and seamless user experience design.
+                        Worked on a car-related website using templates and code I found online. Modified layouts, adjusted styling, and learned a ton about responsive design by breaking things and fixing them. Still learning how it all fits together.
                     </p>
-                    <p class="project-tech">Discord.js • Node.js • Server Management • Bot Development • UI/UX Design</p>
+                    <p class="project-tech">HTML • CSS • Templates • Learning Process</p>
                 </div>
                 <div class="project-card fade-in">
-                    <h3 class="project-title">🎯 Typography & Format Frameworks</h3>
+                    <h3 class="project-title">⚙️ Arduino Tinkering</h3>
                     <p class="project-desc">
-                        Custom formatting systems ensuring consistent typography, spacing, and visual hierarchy across all projects. Includes small caps font implementations, emoji alignment protocols, and zero-waste design principles. Scalable design tokens and component libraries.
+                        Experimented with Arduino and OLED displays. Used example code from libraries, modified it until it worked (or broke), and learned how to make things show up on tiny screens. Still figuring out the electronics side.
                     </p>
-                    <p class="project-tech">CSS • Typography • Design Systems • JSON Schemas • Component Libraries</p>
+                    <p class="project-tech">Arduino • C++ Examples • Hardware Learning</p>
                 </div>
                 <div class="project-card fade-in">
-                    <h3 class="project-title">🔐 Code Obfuscation Suite</h3>
+                    <h3 class="project-title">📝 Typography Experiments</h3>
                     <p class="project-desc">
-                        Advanced JavaScript and CSS obfuscation tools for enhanced security and cleaner deployment packages. Maintains functionality while reducing code readability and file sizes. Includes automated minification and optimization pipelines.
+                        Endless experiments with fonts, spacing, and formatting. Created personal style guides for how I like things to look. Small caps fonts, emoji positioning, zero unnecessary spaces — it's weirdly satisfying to get right.
                     </p>
-                    <p class="project-tech">JavaScript • Node.js • Webpack • Security • Performance</p>
+                    <p class="project-tech">CSS • Design Systems • Personal Standards</p>
                 </div>
                 <div class="project-card fade-in">
-                    <h3 class="project-title">📊 Real-time Analytics Dashboard</h3>
+                    <h3 class="project-title">🔍 F12 Learning Sessions</h3>
                     <p class="project-desc">
-                        Interactive data visualization platform with real-time metrics, customizable widgets, and responsive design. Features drag-and-drop interface, live data streaming, and export capabilities. Built with performance and user experience as priorities.
+                        Countless hours inspecting websites I like, seeing how they work, copying code snippets, and trying to recreate effects. This is literally how I learned everything. Best teacher ever — the browser's inspect element.
                     </p>
-                    <p class="project-tech">JavaScript • Chart.js • WebSocket • Responsive Design • Data Processing</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title fade-in">Experience Timeline</h2>
-            <div class="experience-timeline">
-                <div class="timeline-line"></div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2024 - Present</div>
-                    <h3 class="timeline-title">Full-Stack Developer & UI/UX Specialist</h3>
-                    <p>Leading end-to-end development projects with focus on pixel-perfect implementations and performance optimization. Specializing in embedded systems integration and modern web technologies. Created custom formatting frameworks and design systems for consistent brand experiences.</p>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2023 - 2024</div>
-                    <h3 class="timeline-title">Discord Community Architect</h3>
-                    <p>Designed and managed large-scale Discord communities with custom bot development, automated systems, and consistent visual branding. Focused on user experience optimization and community engagement through structured hierarchies and emoji-label formatting systems.</p>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2022 - 2023</div>
-                    <h3 class="timeline-title">Embedded Systems Developer</h3>
-                    <p>Developed Arduino-based display solutions using SH1106 OLED controllers and Adafruit_GFX libraries. Created atomic visualization systems with precise pixel rendering and optimized performance for microcontroller environments. Focus on minimal resource usage and maximum visual impact.</p>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2021 - 2022</div>
-                    <h3 class="timeline-title">Frontend Developer & Brand Designer</h3>
-                    <p>Built responsive web applications with emphasis on clean code architecture and brand consistency. Implemented advanced CSS animations, custom typography systems, and performance optimization techniques. Developed code obfuscation tools for enhanced security.</p>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2020 - 2021</div>
-                    <h3 class="timeline-title">Junior Web Developer</h3>
-                    <p>Started journey in web development focusing on HTML5, CSS3, and JavaScript fundamentals. Built foundational skills in responsive design, cross-browser compatibility, and user interface development. Developed attention to detail and precision-first approach to coding.</p>
+                    <p class="project-tech">Chrome DevTools • Self-Teaching • Code Reading</p>
                 </div>
             </div>
         </div>
@@ -1160,42 +876,34 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Let's Build Something</h2>
+            <h2 class="section-title fade-in">Let's Connect</h2>
             <div class="contact-content">
                 <div class="terminal-text">
-                    if (you.need === "precise_execution" && you.value === "quality") { contact.md_afaque() }<span class="cursor"></span>
+                    if (you.value === "learning_together" && you.appreciate === "honesty") { contact.me() }<span class="cursor"></span>
                 </div>
                 <p class="contact-intro fade-in">
-                    Looking for someone who doesn't just code, but crafts experiences? Someone who obsesses over the details others miss? 
-                    I'm here to turn your ideas into pixel-perfect reality. <span class="highlight">Let's talk.</span>
+                    I'm not selling years of experience or a huge portfolio. What I can offer is <span class="highlight">curiosity, attention to detail, and a willingness to learn.</span> If you're looking for someone who's honest about where they are and excited about where they're going, let's talk.
                 </p>
-<div class="contact-methods">
-  <!-- Email -->
-  <a href="mailto:support@mrafaque.qzz.io" class="contact-item fade-in" title="Email me">
-    📧 Email
-  </a>
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/917980903434" class="contact-item fade-in" title="Chat on WhatsApp" target="_blank" rel="noopener">
-    📱 WhatsApp
-  </a>
-
-  <!-- GitHub -->
-  <a href="https://github.com/AFAQUE752" class="contact-item fade-in" title="Check my GitHub" target="_blank" rel="noopener">
-    🐙 GitHub
-  </a>
-
-  <a href="https://status.mrafaque.qzz.io/" class="contact-item fade-in" title="Check my website's status" target="_blank"rel="noopener">
-    ✅ Status
-  </a>
-</div>
-
+                <div class="contact-methods">
+                    <a href="mailto:support@mrafaque.qzz.io" class="contact-item fade-in" title="Email me">
+                        📧 Email
+                    </a>
+                    <a href="https://wa.me/917980903434" class="contact-item fade-in" title="Chat on WhatsApp" target="_blank" rel="noopener">
+                        📱 WhatsApp
+                    </a>
+                    <a href="https://github.com/AFAQUE752" class="contact-item fade-in" title="Check my GitHub" target="_blank" rel="noopener">
+                        🐙 GitHub
+                    </a>
+                    <a href="https://status.mrafaque.qzz.io/" class="contact-item fade-in" title="Check my website's status" target="_blank" rel="noopener">
+                        ✅ Status
+                    </a>
                 </div>
                 <div class="terminal-text" style="margin-top: 3rem;">
-                    > status: unavailable_as_of_now<br>
-                    > location: India<br>
+                    > status: learning_and_available<br>
+                    > location: Kolkata, India<br>
                     > timezone: IST (UTC+5:30)<br>
-                    > response_time: &lt; 24h<span class="cursor"></span>
+                    > response_time: &lt; 24h<br>
+                    > honesty_level: 100%<span class="cursor"></span>
                 </div>
             </div>
         </div>
@@ -1207,24 +915,22 @@
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#experience">Experience</a>
+                    <a href="#projects">Experiments</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="terminal-text" style="margin: 0; background: transparent; border: none; padding: 0; font-size: 0.9rem;">
-                    console.log("Thanks for visiting")<span class="cursor"></span>
+                    console.log("Still learning, still building")<span class="cursor"></span>
                 </div>
             </div>
             <div class="footer-text">
-                © 2025 Md Afaque Ashraf. Crafted with precision and attention to detail.
+                © 2025 Md Afaque Ashraf. Built by learning from others and figuring things out.
             </div>
         </div>
     </footer>
 
     <script>
-        // Particle animation
         const particlesContainer = document.getElementById('particles');
-        const particleCount = window.innerWidth < 768 ? 25 : 50; // Fewer particles on mobile
+        const particleCount = window.innerWidth < 768 ? 25 : 50;
 
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
@@ -1236,7 +942,6 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Mobile Navigation Toggle
         const mobileToggle = document.getElementById('mobile-toggle');
         const navLinks = document.getElementById('nav-links');
 
@@ -1245,7 +950,6 @@
             mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -1253,7 +957,6 @@
             });
         });
 
-        // Enhanced Navigation Scroll Effect
         const navbar = document.getElementById('navbar');
         let lastScrollY = window.scrollY;
         let ticking = false;
@@ -1280,7 +983,6 @@
 
         window.addEventListener('scroll', requestTick, { passive: true });
 
-        // Smooth scrolling with offset for sticky nav
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1295,7 +997,6 @@
             });
         });
 
-        // Enhanced Scroll animations with Intersection Observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1309,17 +1010,14 @@
             });
         }, observerOptions);
 
-        // Observe all animation elements
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
             observer.observe(el);
         });
 
-        // Terminal typing effect - simplified for performance
         function initializeTerminalEffects() {
             const terminals = document.querySelectorAll('.terminal-text');
             
             terminals.forEach((terminal, index) => {
-                // Add a delay for each terminal
                 setTimeout(() => {
                     const cursor = terminal.querySelector('.cursor');
                     if (cursor) {
@@ -1329,15 +1027,12 @@
             });
         }
 
-        // Initialize terminal effects when page loads
         window.addEventListener('load', initializeTerminalEffects);
 
-        // Optimized resize handler
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Close mobile menu on resize
                 if (window.innerWidth > 768) {
                     navLinks.classList.remove('active');
                     mobileToggle.textContent = '☰';
@@ -1345,12 +1040,10 @@
             }, 250);
         });
 
-        // Performance optimization: Reduce animations on slower devices
         if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
             document.documentElement.style.setProperty('--animation-duration', '0.3s');
         }
 
-        // Preload critical resources
         const preloadLink = document.createElement('link');
         preloadLink.rel = 'preload';
         preloadLink.as = 'font';
@@ -1358,11 +1051,9 @@
         preloadLink.crossOrigin = 'anonymous';
         document.head.appendChild(preloadLink);
 
-        // Add loading state management
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
             
-            // Trigger initial animations
             setTimeout(() => {
                 document.querySelectorAll('.fade-in').forEach((el, index) => {
                     setTimeout(() => {
@@ -1375,8 +1066,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
