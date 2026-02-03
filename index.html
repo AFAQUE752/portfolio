@@ -568,13 +568,13 @@
 
         .cursor {
             display: inline-block;
-            width: 0.7rem;
-            height: 1.2rem;
+            width: 10px;
+            height: 20px;
             margin-left: 0.3rem;
-            background: #66ffcc !important;
+            background: #66ffcc;
             border-radius: 2px;
             vertical-align: text-bottom;
-            animation: blink 1s infinite;
+            animation: blink 1s step-end infinite;
         }
 
         @keyframes blink {
@@ -619,6 +619,8 @@
             color: #00d4ff;
             font-size: 1rem;
             margin-top: 2rem;
+            line-height: 1.6;
+        }
 
         @media (max-width: 768px) {
             .container { padding: 0 15px; }
@@ -1113,6 +1115,7 @@
     </script>
 </body>
 </html>
+
 
 
 
