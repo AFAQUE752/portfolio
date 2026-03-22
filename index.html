@@ -356,6 +356,166 @@
 
         /* Hidden YT iframe */
         #yt-player { position: fixed; top: -9999px; left: -9999px; width: 1px; height: 1px; pointer-events: none; }
+
+        /* ===================== SPLASH SCREEN ===================== */
+        #splash {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            background: #0D0D0D;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: none;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #splash.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* pixel grid on splash */
+        #splash::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(68,255,238,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(68,255,238,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+
+        .splash-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(68,255,238,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .splash-name {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            letter-spacing: 8px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .splash-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -1px;
+            text-align: center;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .splash-title span { color: var(--diamond); }
+
+        .splash-sub {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        #enter-btn {
+            position: relative;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 1.2rem 3.5rem;
+            background: transparent;
+            border: 1px solid rgba(68,255,238,0.4);
+            color: var(--diamond);
+            cursor: none;
+            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+            transition: all 0.25s;
+            overflow: hidden;
+        }
+
+        #enter-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--diamond);
+            transform: translateX(-101%);
+            transition: transform 0.3s ease;
+            z-index: 0;
+        }
+
+        #enter-btn:hover::before { transform: translateX(0); }
+        #enter-btn:hover { color: #000; border-color: var(--diamond); }
+        #enter-btn span { position: relative; z-index: 1; }
+
+        /* pulsing ring around button */
+        .enter-ring {
+            position: absolute;
+            inset: -12px;
+            border: 1px solid rgba(68,255,238,0.12);
+            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+            animation: ring-pulse 2.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .enter-ring-2 {
+            inset: -22px;
+            animation-delay: 0.4s;
+            border-color: rgba(68,255,238,0.06);
+        }
+
+        .splash-note {
+            position: absolute;
+            bottom: 2.5rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            color: #333;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .splash-note::before, .splash-note::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: #333;
+        }
+
+        /* scanning line animation on splash */
+        .splash-scan {
+            position: absolute;
+            left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(68,255,238,0.3), transparent);
+            animation: scan-line 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan-line {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -385,6 +545,21 @@
 
     <!-- Hidden YouTube Player -->
     <div id="yt-player"></div>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash">
+        <div class="splash-glow"></div>
+        <div class="splash-scan"></div>
+        <div class="splash-name">Md Afaque Ashraf</div>
+        <div class="splash-title">Minecraft<br><span>Server Dev</span></div>
+        <div class="splash-sub">Full-Stack · BoxPvP · Lifesteal</div>
+        <button id="enter-btn">
+            <div class="enter-ring"></div>
+            <div class="enter-ring enter-ring-2"></div>
+            <span>⬡ Enter Portfolio</span>
+        </button>
+        <div class="splash-note">Music will play on entry</div>
+    </div>
 
     <nav>
         <div class="nav-logo">MdAfaque.dev</div>
@@ -547,10 +722,13 @@
         document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
         function animateTrail() { tx += (mx - tx) * 0.12; ty += (my - ty) * 0.12; trail.style.left = tx + 'px'; trail.style.top = ty + 'px'; requestAnimationFrame(animateTrail); }
         animateTrail();
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1.8)'; trail.style.width = '50px'; trail.style.height = '50px'; });
-            el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; trail.style.width = '30px'; trail.style.height = '30px'; });
-        });
+        function attachCursorHover() {
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1.8)'; trail.style.width = '50px'; trail.style.height = '50px'; });
+                el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; trail.style.width = '30px'; trail.style.height = '30px'; });
+            });
+        }
+        attachCursorHover();
 
         // ===================== PARTICLES =====================
         const pf = document.getElementById('particleField');
@@ -576,7 +754,7 @@
 
         // ===================== SCROLL REVEALS =====================
         const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
                     e.target.classList.add('visible');
@@ -584,7 +762,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
+        reveals.forEach(el => revealObserver.observe(el));
 
         // ===================== NAV SCROLL =====================
         document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -594,111 +772,77 @@
             });
         });
 
-        // ===================== MUSIC PLAYER =====================
+        // ===================== MUSIC + SPLASH =====================
         const VIDEO_ID = 'Pz7VWK9hsaY';
         let ytPlayer = null;
-        let isPlaying = false;
         let playerReady = false;
+        let isPlaying = false;
 
-        const musicBtn = document.getElementById('music-btn');
-        const musicInfo = document.getElementById('music-info');
-        const iconPlay = document.getElementById('icon-play');
-        const iconPause = document.getElementById('icon-pause');
-        const bars = [document.getElementById('b1'), document.getElementById('b2'), document.getElementById('b3'), document.getElementById('b4')];
-
-        // Load YouTube IFrame API
-        window.onYouTubeIframeAPIReady = function() {
+        // Pre-load the YT player silently as soon as API is ready
+        window.onYouTubeIframeAPIReady = function () {
             ytPlayer = new YT.Player('yt-player', {
-                height: '1',
-                width: '1',
+                height: '1', width: '1',
                 videoId: VIDEO_ID,
                 playerVars: {
-                    autoplay: 1,
-                    mute: 1,        // must start muted for autoplay to work
-                    loop: 1,
-                    playlist: VIDEO_ID,
-                    controls: 0,
-                    disablekb: 1,
-                    fs: 0,
-                    iv_load_policy: 3,
-                    modestbranding: 1,
-                    rel: 0,
-                    playsinline: 1
+                    autoplay: 0, mute: 1, loop: 1,
+                    playlist: VIDEO_ID, controls: 0,
+                    disablekb: 1, fs: 0, iv_load_policy: 3,
+                    modestbranding: 1, rel: 0, playsinline: 1
                 },
                 events: {
-                    onReady: onPlayerReady,
-                    onStateChange: onPlayerStateChange
+                    onReady: e => { playerReady = true; },
+                    onStateChange: e => {
+                        if (e.data === YT.PlayerState.PLAYING) { isPlaying = true; updateMusicUI(true); }
+                        else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) { isPlaying = false; updateMusicUI(false); }
+                    }
                 }
             });
         };
 
-        function onPlayerReady(event) {
-            playerReady = true;
-            event.target.playVideo();
-            // After a short delay, unmute and set volume (browser usually allows after any interaction OR on some browsers right away)
-            setTimeout(() => {
-                try {
-                    event.target.unMute();
-                    event.target.setVolume(60);
-                    isPlaying = true;
-                    updateUI(true);
-                } catch(e) {}
-            }, 800);
-        }
+        // ENTER BUTTON — guaranteed user gesture, so audio will play
+        document.getElementById('enter-btn').addEventListener('click', () => {
+            // Dismiss splash
+            document.getElementById('splash').classList.add('hidden');
 
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.PLAYING) {
-                isPlaying = true;
-                updateUI(true);
-            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-                isPlaying = false;
-                updateUI(false);
-            }
-        }
-
-        function updateUI(playing) {
-            if (playing) {
-                iconPlay.style.display = 'none';
-                iconPause.style.display = 'block';
-                musicBtn.classList.add('playing');
-                musicInfo.classList.add('visible');
-                bars.forEach(b => b.classList.remove('paused'));
-                document.getElementById('music-tooltip').textContent = 'CLICK TO PAUSE';
+            // Start music immediately (this click IS the user gesture)
+            if (playerReady && ytPlayer) {
+                ytPlayer.unMute();
+                ytPlayer.setVolume(55);
+                ytPlayer.playVideo();
             } else {
-                iconPlay.style.display = 'block';
-                iconPause.style.display = 'none';
-                musicBtn.classList.remove('playing');
-                bars.forEach(b => b.classList.add('paused'));
-                document.getElementById('music-tooltip').textContent = 'CLICK TO PLAY MUSIC';
+                // Player not ready yet — wait for it then play
+                const waitAndPlay = setInterval(() => {
+                    if (playerReady && ytPlayer) {
+                        clearInterval(waitAndPlay);
+                        ytPlayer.unMute();
+                        ytPlayer.setVolume(55);
+                        ytPlayer.playVideo();
+                    }
+                }, 200);
             }
+        });
+
+        // ===================== FLOATING MUSIC CONTROLS =====================
+        const musicBtn = document.getElementById('music-btn');
+        const musicInfo = document.getElementById('music-info');
+        const iconPlay = document.getElementById('icon-play');
+        const iconPause = document.getElementById('icon-pause');
+        const bars = ['b1','b2','b3','b4'].map(id => document.getElementById(id));
+
+        function updateMusicUI(playing) {
+            iconPlay.style.display = playing ? 'none' : 'block';
+            iconPause.style.display = playing ? 'block' : 'none';
+            playing ? musicBtn.classList.add('playing') : musicBtn.classList.remove('playing');
+            playing ? musicInfo.classList.add('visible') : musicInfo.classList.remove('visible');
+            bars.forEach(b => playing ? b.classList.remove('paused') : b.classList.add('paused'));
+            document.getElementById('music-tooltip').textContent = playing ? 'CLICK TO PAUSE' : 'CLICK TO PLAY';
         }
 
         musicBtn.addEventListener('click', () => {
             if (!playerReady || !ytPlayer) return;
-            if (isPlaying) {
-                ytPlayer.pauseVideo();
-                musicInfo.classList.remove('visible');
-            } else {
-                // On first user interaction, ensure unmuted
-                ytPlayer.unMute();
-                ytPlayer.setVolume(60);
-                ytPlayer.playVideo();
-                musicInfo.classList.add('visible');
-            }
+            if (isPlaying) { ytPlayer.pauseVideo(); }
+            else { ytPlayer.unMute(); ytPlayer.setVolume(55); ytPlayer.playVideo(); }
         });
-
-        // Fallback: on first any-click, try to unmute if browser blocked it
-        document.addEventListener('click', function tryUnmute() {
-            if (ytPlayer && playerReady) {
-                try {
-                    if (ytPlayer.isMuted && ytPlayer.isMuted()) {
-                        ytPlayer.unMute();
-                        ytPlayer.setVolume(60);
-                    }
-                } catch(e) {}
-            }
-            document.removeEventListener('click', tryUnmute);
-        }, { once: true });
     </script>
 </body>
 </html>
