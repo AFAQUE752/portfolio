@@ -354,8 +354,8 @@
 
         #music-player:hover #music-tooltip { opacity: 1; }
 
-        /* Hidden YT iframe */
-        #yt-player { position: fixed; top: -9999px; left: -9999px; width: 1px; height: 1px; pointer-events: none; }
+        /* Hidden audio */
+        #bg-audio { display: none; }
 
         /* ===================== SPLASH SCREEN ===================== */
         #splash {
@@ -543,8 +543,10 @@
         <div id="music-tooltip">CLICK TO PLAY MUSIC</div>
     </div>
 
-    <!-- Hidden YouTube Player -->
-    <div id="yt-player"></div>
+    <!-- Background Audio (direct file - works in all browsers) -->
+    <audio id="bg-audio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- SPLASH SCREEN -->
     <div id="splash">
@@ -712,8 +714,6 @@
         <div class="footer-copy">© 2025 · Kolkata, India · IST (UTC+5:30)</div>
     </footer>
 
-    <!-- YouTube IFrame API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         // ===================== CURSOR =====================
         const cursor = document.getElementById('cursor');
@@ -722,13 +722,10 @@
         document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
         function animateTrail() { tx += (mx - tx) * 0.12; ty += (my - ty) * 0.12; trail.style.left = tx + 'px'; trail.style.top = ty + 'px'; requestAnimationFrame(animateTrail); }
         animateTrail();
-        function attachCursorHover() {
-            document.querySelectorAll('a, button').forEach(el => {
-                el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1.8)'; trail.style.width = '50px'; trail.style.height = '50px'; });
-                el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; trail.style.width = '30px'; trail.style.height = '30px'; });
-            });
-        }
-        attachCursorHover();
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1.8)'; trail.style.width = '50px'; trail.style.height = '50px'; });
+            el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; trail.style.width = '30px'; trail.style.height = '30px'; });
+        });
 
         // ===================== PARTICLES =====================
         const pf = document.getElementById('particleField');
@@ -772,76 +769,43 @@
             });
         });
 
-        // ===================== MUSIC + SPLASH =====================
-        const VIDEO_ID = 'Pz7VWK9hsaY';
-        let ytPlayer = null;
-        let playerReady = false;
-        let isPlaying = false;
+        // ===================== AUDIO + SPLASH =====================
+        const audio = document.getElementById('bg-audio');
+        audio.volume = 0.5;
 
-        // Pre-load the YT player silently as soon as API is ready
-        window.onYouTubeIframeAPIReady = function () {
-            ytPlayer = new YT.Player('yt-player', {
-                height: '1', width: '1',
-                videoId: VIDEO_ID,
-                playerVars: {
-                    autoplay: 0, mute: 1, loop: 1,
-                    playlist: VIDEO_ID, controls: 0,
-                    disablekb: 1, fs: 0, iv_load_policy: 3,
-                    modestbranding: 1, rel: 0, playsinline: 1
-                },
-                events: {
-                    onReady: e => { playerReady = true; },
-                    onStateChange: e => {
-                        if (e.data === YT.PlayerState.PLAYING) { isPlaying = true; updateMusicUI(true); }
-                        else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) { isPlaying = false; updateMusicUI(false); }
-                    }
-                }
-            });
-        };
-
-        // ENTER BUTTON — guaranteed user gesture, so audio will play
-        document.getElementById('enter-btn').addEventListener('click', () => {
-            // Dismiss splash
-            document.getElementById('splash').classList.add('hidden');
-
-            // Start music immediately (this click IS the user gesture)
-            if (playerReady && ytPlayer) {
-                ytPlayer.unMute();
-                ytPlayer.setVolume(55);
-                ytPlayer.playVideo();
-            } else {
-                // Player not ready yet — wait for it then play
-                const waitAndPlay = setInterval(() => {
-                    if (playerReady && ytPlayer) {
-                        clearInterval(waitAndPlay);
-                        ytPlayer.unMute();
-                        ytPlayer.setVolume(55);
-                        ytPlayer.playVideo();
-                    }
-                }, 200);
-            }
-        });
-
-        // ===================== FLOATING MUSIC CONTROLS =====================
+        const splash = document.getElementById('splash');
+        const enterBtn = document.getElementById('enter-btn');
         const musicBtn = document.getElementById('music-btn');
         const musicInfo = document.getElementById('music-info');
         const iconPlay = document.getElementById('icon-play');
         const iconPause = document.getElementById('icon-pause');
         const bars = ['b1','b2','b3','b4'].map(id => document.getElementById(id));
+        let isPlaying = false;
 
-        function updateMusicUI(playing) {
-            iconPlay.style.display = playing ? 'none' : 'block';
-            iconPause.style.display = playing ? 'block' : 'none';
-            playing ? musicBtn.classList.add('playing') : musicBtn.classList.remove('playing');
-            playing ? musicInfo.classList.add('visible') : musicInfo.classList.remove('visible');
-            bars.forEach(b => playing ? b.classList.remove('paused') : b.classList.add('paused'));
-            document.getElementById('music-tooltip').textContent = playing ? 'CLICK TO PAUSE' : 'CLICK TO PLAY';
+        function setPlaying(state) {
+            isPlaying = state;
+            iconPlay.style.display = state ? 'none' : 'block';
+            iconPause.style.display = state ? 'block' : 'none';
+            state ? musicBtn.classList.add('playing') : musicBtn.classList.remove('playing');
+            state ? musicInfo.classList.add('visible') : musicInfo.classList.remove('visible');
+            bars.forEach(b => state ? b.classList.remove('paused') : b.classList.add('paused'));
+            document.getElementById('music-tooltip').textContent = state ? 'CLICK TO PAUSE' : 'CLICK TO PLAY';
         }
 
+        // ENTER BUTTON — user gesture allows audio to play
+        enterBtn.addEventListener('click', () => {
+            splash.classList.add('hidden');
+            audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+        });
+
+        // Floating music toggle button
         musicBtn.addEventListener('click', () => {
-            if (!playerReady || !ytPlayer) return;
-            if (isPlaying) { ytPlayer.pauseVideo(); }
-            else { ytPlayer.unMute(); ytPlayer.setVolume(55); ytPlayer.playVideo(); }
+            if (isPlaying) {
+                audio.pause();
+                setPlaying(false);
+            } else {
+                audio.play().then(() => setPlaying(true));
+            }
         });
     </script>
 </body>
